@@ -1,0 +1,11 @@
+[Unit]
+Description=Expose data from pgbouncer for collection by Prometheus
+Requires=pgbouncer.service
+After=pgbouncer.service
+
+[Service]
+User=postgres
+ExecStart=/usr/bin/prometheus-pgbouncer-exporter
+
+[Install]
+WantedBy=multi-user.target

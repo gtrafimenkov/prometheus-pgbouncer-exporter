@@ -1,0 +1,5 @@
+prometheus-pgbouncer-exporter (1.0) unstable; urgency=low
+
+  * Initial release
+
+ -- Christopher Baines <mail@cbaines.net>  Sun, 27 Dec 2015 14:57:54 +0000
