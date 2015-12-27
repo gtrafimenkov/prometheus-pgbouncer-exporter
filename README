@@ -1,0 +1,8 @@
+# PgBouncer exporter for Prometheus
+
+This is a simple exporter for PgBouncer that makes several metrics available to
+Prometheus.
+
+Metrics are exported from the SHOW LISTS, STATS, POOLS and DATABASE comand
+output. For the full list, see the prometheus_pgbouncer_exporter/collectors.py
+file.
