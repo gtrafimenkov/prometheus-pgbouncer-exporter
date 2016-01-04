@@ -105,7 +105,7 @@ class ListsCollector(PgBouncerCollector):
             "",
         ),
         'dns_queries': (
-            'dns_querie_count',
+            'dns_query_count',
             "",
         ),
         'dns_pending': (
