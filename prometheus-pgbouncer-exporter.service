@@ -1,6 +1,6 @@
 [Unit]
 Description=Expose data from pgbouncer for collection by Prometheus
-Requires=pgbouncer.service
+BindsTo=pgbouncer.service
 After=pgbouncer.service
 
 [Service]
