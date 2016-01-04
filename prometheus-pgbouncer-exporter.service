@@ -8,4 +8,4 @@ User=postgres
 ExecStart=/usr/bin/prometheus-pgbouncer-exporter
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=pgbouncer.service
