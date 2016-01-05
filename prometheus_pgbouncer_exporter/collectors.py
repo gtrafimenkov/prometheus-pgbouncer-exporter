@@ -65,51 +65,51 @@ class NamedColumnCollector(PgBouncerCollector):
 class ListsCollector(PgBouncerCollector):
     metrics = {
         'databases': (
-            'database_count',
+            'databases',
             "Number of databases",
         ),
         'users': (
-            'user_count',
+            'users',
             "Number of users",
         ),
         'pools': (
-            'pool_count',
+            'pools',
             "Number of pools",
         ),
         'free_clients': (
-            'free_client_count',
+            'free_clients',
             "Number of free clients",
         ),
         'used_clients': (
-            'used_client_count',
+            'used_clients',
             "Number of used clients",
         ),
         'login_clients': (
-            'login_client_count',
+            'login_clients',
             "Number of clients in the login stats",
         ),
         'free_servers': (
-            'free_server_count',
+            'free_servers',
             "Number of free servers",
         ),
         'used_servers': (
-            'used_server_count',
+            'used_servers',
             "Number of used servers",
         ),
         'dns_names': (
-            'dns_name_count',
+            'dns_names',
             "",
         ),
         'dns_zones': (
-            'dns_zone_count',
+            'dns_zones',
             "",
         ),
         'dns_queries': (
-            'dns_query_count',
+            'dns_queries',
             "",
         ),
         'dns_pending': (
-            'dns_pending_count',
+            'dns_pending',
             "",
         ),
     }
@@ -167,11 +167,11 @@ class PoolsCollector(NamedColumnCollector):
 
     metrics = {
         'cl_active': (
-            'active_client_count',
+            'active_clients',
             "Client connections that are linked to server connection and can process queries",
         ),
         'cl_waiting': (
-            'waiting_client_count',
+            'waiting_clients',
             "Client connections have sent queries but have not yet got a server connection",
         ),
     }
@@ -196,7 +196,7 @@ class DatabasesCollector(NamedColumnCollector):
             "",
         ),
         'reserve_pool': (
-            'reserve_pool_count',
+            'reserve_pool',
             "",
         ),
     }
