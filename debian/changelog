@@ -1,3 +1,11 @@
+prometheus-pgbouncer-exporter (1.1) unstable; urgency=low
+
+  * New release
+    - Improve the .service file
+    - Fix a metric name
+
+ -- Christopher Baines <mail@cbaines.net>  Tue, 05 Jan 2016 10:05:06 +0000
+
 prometheus-pgbouncer-exporter (1.0) unstable; urgency=low
 
   * Initial release
