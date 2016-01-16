@@ -22,6 +22,7 @@ from os.path import join, dirname, normpath
 from http.server import HTTPServer
 from prometheus_client.core import REGISTRY
 
+from . import __version__
 from .utils import get_connection
 from .exposition import create_request_handler
 from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
@@ -33,6 +34,12 @@ def main():
         default_config_files=[
             '/etc/prometheus-pgbouncer-exporter/config',
         ],
+    )
+
+    p.add(
+        '--version',
+        action='store_true',
+        help="Show the version",
     )
 
     p.add(
@@ -70,6 +77,10 @@ def main():
     )
 
     options = p.parse_args()
+
+    if options.version:
+        print("prometheus-pgbouncer-exporter %s" % __version__)
+        return
 
     logging.basicConfig(level=logging.DEBUG)
 
