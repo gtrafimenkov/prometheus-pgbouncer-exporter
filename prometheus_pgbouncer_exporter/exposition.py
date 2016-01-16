@@ -36,7 +36,7 @@ index_page = """
   </p>
 
   <p>
-    Metrics are exported from the SHOW LISTS, STATS, POOLS and DATABASE comand
+    Metrics are exported from the SHOW LISTS, STATS, POOLS and DATABASES comand
     output.
   </p>
 
