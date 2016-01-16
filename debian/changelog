@@ -1,3 +1,13 @@
+prometheus-pgbouncer-exporter (1.2) unstable; urgency=low
+
+  * New release
+    - Add extra documentation
+    - Add extra licence information
+    - Add --version argument
+    - Rename metrics, removing _count prefix
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 16 Jan 2016 20:47:22 +0000
+
 prometheus-pgbouncer-exporter (1.1) unstable; urgency=low
 
   * New release
