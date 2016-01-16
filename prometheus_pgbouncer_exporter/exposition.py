@@ -42,6 +42,20 @@ index_page = """
 
   <a href="/metrics">View metrics</a>
 
+  <h2>Example Configuration</h2>
+  <p>
+    You must configure Prometheus to scrape the metrics exported here. The port
+    is 9127, and the configuration should look something like the example
+    below.
+  </p>
+  <pre><code>
+    scrape_configs:
+      - job_name: pgbouncer
+        target_groups:
+          - targets:
+            - MACHINE_ADDRESS:9127
+  </code></pre>
+
   <h2>Information</h2>
   <p>
     Copyright (C) 2015  Christopher Baines <mail@cbaines.net><br>
