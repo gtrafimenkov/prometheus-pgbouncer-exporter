@@ -41,16 +41,53 @@ index_page = """
   </p>
 
   <a href="/metrics">View metrics</a>
+
+  <h2>Information</h2>
+  <p>
+    Copyright (C) 2015  Christopher Baines <mail@cbaines.net><br>
+    <a href="/licence">View Licence</a>
+  </p>
+
+  <p>
+    The source may be obtained from
+    <a href="http://git.cbaines.net/prometheus-pgbouncer-exporter/">
+    this Git repository</a>
+  </p>
+
+  <p>
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+  </p>
+
+  <p>
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+  </p>
 </body>
 </html>
 """
 
 
-class RequestHandler(MetricsHandler):
-    def do_GET(self):
-        if self.path == "/metrics":
-            return super().do_GET()
-        else:
+def create_request_handler(licence_location):
+    class RequestHandler(MetricsHandler):
+        def do_GET(self):
+            if self.path == "/metrics":
+                return super().do_GET()
+
             self.send_response(200)
             self.end_headers()
-            self.wfile.write(index_page.encode('UTF-8'))
+
+            if self.path == "/licence":
+                with open(
+                    licence_location,
+                    'rb',
+                ) as licence:
+                    self.wfile.write(licence.read())
+            else:
+                self.wfile.write(index_page.encode('UTF-8'))
+
+    return RequestHandler

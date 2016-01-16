@@ -16,13 +16,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-from http.server import HTTPServer
-
 import configargparse
+
+from os.path import join, dirname, normpath
+from http.server import HTTPServer
 from prometheus_client.core import REGISTRY
 
 from .utils import get_connection
-from .exposition import RequestHandler
+from .exposition import create_request_handler
 from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
     DatabasesCollector
 
@@ -61,6 +62,13 @@ def main():
         env_var='PGBOUNCER_DATABASES',
     )
 
+    p.add(
+        '--licence-location',
+        default=join(dirname(dirname(normpath(__file__))), 'LICENSE'),
+        help="The location of the licence, linked to through the web interface",
+        env_var='LICENCE_LOCATION',
+    )
+
     options = p.parse_args()
 
     logging.basicConfig(level=logging.DEBUG)
@@ -91,7 +99,10 @@ def main():
     host = '0.0.0.0'
     port = 9127
 
-    httpd = HTTPServer((host, port), RequestHandler)
+    httpd = HTTPServer(
+        (host, port),
+        create_request_handler(options.licence_location),
+    )
 
     logging.info("Listing on port %s:%d" % (host, port))
 
