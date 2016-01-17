@@ -16,7 +16,7 @@ Please send any comments or queries to Christopher Baines <mail@cbaines.net>.
 You can build a Debian binary package from the source package in the git
 repository. Alternatively, you can download a binary package from here:
 
-  http://cbaines.net/projects/prometheus-pgbouncer-exporter/releases/
+<http://cbaines.net/projects/prometheus-pgbouncer-exporter/releases/>
 
 ### Other Operating Systems
 
