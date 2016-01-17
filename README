@@ -6,3 +6,18 @@ Prometheus.
 Metrics are exported from the SHOW LISTS, STATS, POOLS and DATABASES command
 output. For the full list, see the prometheus_pgbouncer_exporter/collectors.py
 file.
+
+## Installation
+
+### Debian
+
+You can build a Debian binary package from the source package in the git
+repository. Alternatively, you can download a binary package from here:
+
+  http://cbaines.net/projects/prometheus-pgbouncer-exporter/releases/
+
+### Other Operating Systems
+
+I would recommend installing using setuptools, then running the
+promtheus-pgbouncer-exporter script. A systemd service file is provided which
+can be used if you have systemd.
