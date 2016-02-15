@@ -1,3 +1,10 @@
+prometheus-pgbouncer-exporter (1.3) unstable; urgency=medium
+
+  * New release
+   - Readme improvements
+
+ -- Christopher Baines <mail@cbaines.net>  Mon, 15 Feb 2016 16:44:28 +0000
+
 prometheus-pgbouncer-exporter (1.2) unstable; urgency=low
 
   * New release
