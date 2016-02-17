@@ -31,6 +31,7 @@ from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
 
 def main():
     p = configargparse.ArgParser(
+        prog="prometheus-pgbouncer-exporter",
         default_config_files=[
             '/etc/prometheus-pgbouncer-exporter/config',
         ],
