@@ -1,0 +1,2 @@
+version=2
+  http://git.cbaines.net/prometheus-pgbouncer-exporter/refs/ .*/prometheus-pgbouncer-exporter-(.+)\.tar\.gz
