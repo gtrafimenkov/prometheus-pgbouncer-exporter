@@ -6,8 +6,13 @@ Homepage: http://git.cbaines.net/prometheus-pgbouncer-exporter/
 Build-Depends: debhelper (>= 9),
                dh-systemd,
                dh-python,
+               help2man,
                python3-all,
                python3-setuptools,
+# Used when generating the manpage
+               python3-psycopg2,
+               python3-configargparse,
+               python3-prometheus-client,
 Standards-Version: 3.9.6
 X-Python3-Version: >= 3.2
 

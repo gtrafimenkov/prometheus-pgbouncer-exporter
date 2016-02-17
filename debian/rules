@@ -10,3 +10,13 @@ override_dh_systemd_enable:
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade prometheus-pgbouncer-exporter.service
+
+override_dh_auto_install:
+	dh_auto_install
+	# build the man page
+	help2man -n "Export metrics from pgbouncer to Prometheus" --no-info \
+		--version-option="-m prometheus_pgbouncer_exporter --version" \
+		--help-option="-m prometheus_pgbouncer_exporter --help" \
+		--output=prometheus-pgbouncer-exporter.1 python3
+	# Remove the .TP on the 7th line to improve readability
+	sed -i '7 d' prometheus-pgbouncer-exporter.1
