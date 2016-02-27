@@ -50,14 +50,14 @@ def main():
     p.add(
         '--port',
         default='9127',
-        help="Port to connect to pgbouncer",
+        help="Port on which to expose metrics",
         type=int,
         env_var='PORT',
     )
     p.add(
         '--host',
         default='0.0.0.0',
-        help="Port to connect to pgbouncer",
+        help="Host on which to expose metrics",
         env_var='HOST',
     )
 
