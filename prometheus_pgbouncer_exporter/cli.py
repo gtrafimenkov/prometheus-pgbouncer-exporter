@@ -51,13 +51,13 @@ def main():
     )
 
     p.add(
-        '--port',
+        '--pgbouncer-port',
         default='6432',
         help="Port to connect to pgbouncer",
         env_var='PGBOUNCER_PORT',
     )
     p.add(
-        '--user',
+        '--pgbouncer-user',
         default='pgbouncer',
         help="User to connect to pgbouncer with",
         env_var='PGBOUNCER_USER',
@@ -87,7 +87,7 @@ def main():
 
     logging.info(p.format_values())
 
-    connection = get_connection(options.user, options.port)
+    connection = get_connection(options.pgbouncer_user, options.pgbouncer_port)
 
     REGISTRY.register(StatsCollector(
         connection=connection,
