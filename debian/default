@@ -1,0 +1,4 @@
+# Note that if you are using systemd, this file will not be used and you should
+# instead alter the configuration via the service file.
+
+ARGS="--config /etc/prometheus-pgbouncer-exporter.conf --licence-location /usr/share/doc/prometheus-pgbouncer-exporter/copyright"
