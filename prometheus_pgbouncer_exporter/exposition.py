@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # Copyright (C) 2015  Christopher Baines <mail@cbaines.net>
 #
 # This program is free software: you can redistribute it and/or modify
