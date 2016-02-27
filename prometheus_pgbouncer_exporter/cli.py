@@ -32,9 +32,6 @@ from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
 def main():
     p = configargparse.ArgParser(
         prog="prometheus-pgbouncer-exporter",
-        default_config_files=[
-            '/etc/prometheus-pgbouncer-exporter/config',
-        ],
     )
 
     p.add(
@@ -52,12 +49,26 @@ def main():
 
     p.add(
         '--port',
+        default='9127',
+        help="Port to connect to pgbouncer",
+        type=int,
+        env_var='PORT',
+    )
+    p.add(
+        '--host',
+        default='0.0.0.0',
+        help="Port to connect to pgbouncer",
+        env_var='HOST',
+    )
+
+    p.add(
+        '--pgbouncer-port',
         default='6432',
         help="Port to connect to pgbouncer",
         env_var='PGBOUNCER_PORT',
     )
     p.add(
-        '--user',
+        '--pgbouncer-user',
         default='pgbouncer',
         help="User to connect to pgbouncer with",
         env_var='PGBOUNCER_USER',
@@ -87,7 +98,7 @@ def main():
 
     logging.info(p.format_values())
 
-    connection = get_connection(options.user, options.port)
+    connection = get_connection(options.pgbouncer_user, options.pgbouncer_port)
 
     REGISTRY.register(StatsCollector(
         connection=connection,
@@ -108,15 +119,12 @@ def main():
         connection=connection,
     ))
 
-    host = '0.0.0.0'
-    port = 9127
-
     httpd = HTTPServer(
-        (host, port),
+        (options.host, options.port),
         create_request_handler(options.licence_location),
     )
 
-    logging.info("Listing on port %s:%d" % (host, port))
+    logging.info("Listing on port %s:%d" % (options.host, options.port))
 
     try:
         httpd.serve_forever()
