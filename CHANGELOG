@@ -1,3 +1,10 @@
+prometheus-pgbouncer-exporter (1.6)
+
+  * Make the pgbouncer host configurable
+  * Fix help strings
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 27 Feb 2016 17:55:20 +0000
+
 prometheus-pgbouncer-exporter (1.5)
 
   * Make the port and host configurable
