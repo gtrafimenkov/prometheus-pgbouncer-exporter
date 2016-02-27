@@ -45,6 +45,7 @@ def main():
         '--config',
         is_config_file=True,
         help='config file path',
+        env_var='CONFIG',
     )
 
     p.add(
