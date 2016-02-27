@@ -45,19 +45,20 @@ def main():
         '--config',
         is_config_file=True,
         help='config file path',
+        env_var='CONFIG',
     )
 
     p.add(
         '--port',
         default='9127',
-        help="Port to connect to pgbouncer",
+        help="Port on which to expose metrics",
         type=int,
         env_var='PORT',
     )
     p.add(
         '--host',
         default='0.0.0.0',
-        help="Port to connect to pgbouncer",
+        help="Host on which to expose metrics",
         env_var='HOST',
     )
 
@@ -72,6 +73,12 @@ def main():
         default='pgbouncer',
         help="User to connect to pgbouncer with",
         env_var='PGBOUNCER_USER',
+    )
+    p.add(
+        '--pgbouncer-host',
+        default=None,
+        help="Host on which to connect to pgbouncer",
+        env_var='PGBOUNCER_HOST',
     )
 
     p.add(
@@ -98,7 +105,11 @@ def main():
 
     logging.info(p.format_values())
 
-    connection = get_connection(options.pgbouncer_user, options.pgbouncer_port)
+    connection = get_connection(
+        options.pgbouncer_user,
+        options.pgbouncer_port,
+        options.pgbouncer_host,
+    )
 
     REGISTRY.register(StatsCollector(
         connection=connection,

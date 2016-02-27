@@ -14,11 +14,12 @@
 import psycopg2
 
 
-def get_connection(user, port):
+def get_connection(user, port, host):
     connection = psycopg2.connect(
         database='pgbouncer',
         user=user,
         port=port,
+        host=host,
     )
 
     # pgbouncer does not support transactions (as it does not make sense to),

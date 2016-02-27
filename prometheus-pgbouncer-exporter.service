@@ -5,7 +5,6 @@ After=pgbouncer.service
 
 [Service]
 User=postgres
-Environment='LICENCE_LOCATION=/usr/share/doc/prometheus-pgbouncer-exporter/copyright'
 ExecStart=/usr/bin/prometheus-pgbouncer-exporter
 
 [Install]
