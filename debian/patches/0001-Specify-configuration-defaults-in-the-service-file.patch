@@ -1,0 +1,20 @@
+From: Christopher Baines <mail@cbaines.net>
+Date: Sat, 27 Feb 2016 18:59:58 +0000
+Subject: Specify configuration defaults in the service file
+
+---
+ prometheus-pgbouncer-exporter.service | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/prometheus-pgbouncer-exporter.service b/prometheus-pgbouncer-exporter.service
+index b95ab6c..ab503bf 100644
+--- a/prometheus-pgbouncer-exporter.service
++++ b/prometheus-pgbouncer-exporter.service
+@@ -5,6 +5,7 @@ After=pgbouncer.service
+ 
+ [Service]
+ User=postgres
++Environment='LICENCE_LOCATION=/usr/share/doc/prometheus-pgbouncer-exporter/copyright' 'CONFIG=/etc/prometheus-pgbouncer-exporter.conf'
+ ExecStart=/usr/bin/prometheus-pgbouncer-exporter
+ 
+ [Install]
