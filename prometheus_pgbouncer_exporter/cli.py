@@ -73,6 +73,12 @@ def main():
         help="User to connect to pgbouncer with",
         env_var='PGBOUNCER_USER',
     )
+    p.add(
+        '--pgbouncer-host',
+        default=None,
+        help="Host on which to connect to pgbouncer",
+        env_var='PGBOUNCER_HOST',
+    )
 
     p.add(
         '--database',
@@ -98,7 +104,11 @@ def main():
 
     logging.info(p.format_values())
 
-    connection = get_connection(options.pgbouncer_user, options.pgbouncer_port)
+    connection = get_connection(
+        options.pgbouncer_user,
+        options.pgbouncer_port,
+        options.pgbouncer_host,
+    )
 
     REGISTRY.register(StatsCollector(
         connection=connection,
