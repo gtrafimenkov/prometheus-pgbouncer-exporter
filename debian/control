@@ -20,6 +20,10 @@ Package: prometheus-pgbouncer-exporter
 Architecture: all
 Depends: ${misc:Depends},
          ${python3:Depends},
+# Depend on postgresql-common, as it creates the postgres user which the init
+# script and service file are configured to run the service as
+         postgresql-common,
+         daemon,
          python3-configargparse,
          python3-prometheus-client,
          python3-psycopg2,
