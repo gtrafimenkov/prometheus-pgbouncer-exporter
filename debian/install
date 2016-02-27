@@ -1,1 +1,2 @@
 prometheus-pgbouncer-exporter.service lib/systemd/system/
+prometheus-pgbouncer-exporter.conf etc/
