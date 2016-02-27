@@ -1,10 +1,4 @@
-prometheus-pgbouncer-exporter (1.5-1) unstable; urgency=medium
-
-  * New upstream release
-
- -- Christopher Baines <mail@cbaines.net>  Sat, 27 Feb 2016 14:19:34 +0000
-
-prometheus-pgbouncer-exporter (1.4-1) unstable; urgency=medium
+prometheus-pgbouncer-exporter (1.6-1) unstable; urgency=medium
 
   * Package version 1.4 (Closes: #814823).
 
