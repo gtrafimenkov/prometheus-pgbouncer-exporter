@@ -51,6 +51,20 @@ def main():
     )
 
     p.add(
+        '--port',
+        default='9127',
+        help="Port to connect to pgbouncer",
+        type=int,
+        env_var='PORT',
+    )
+    p.add(
+        '--host',
+        default='0.0.0.0',
+        help="Port to connect to pgbouncer",
+        env_var='HOST',
+    )
+
+    p.add(
         '--pgbouncer-port',
         default='6432',
         help="Port to connect to pgbouncer",
@@ -108,15 +122,12 @@ def main():
         connection=connection,
     ))
 
-    host = '0.0.0.0'
-    port = 9127
-
     httpd = HTTPServer(
-        (host, port),
+        (options.host, options.port),
         create_request_handler(options.licence_location),
     )
 
-    logging.info("Listing on port %s:%d" % (host, port))
+    logging.info("Listing on port %s:%d" % (options.host, options.port))
 
     try:
         httpd.serve_forever()
