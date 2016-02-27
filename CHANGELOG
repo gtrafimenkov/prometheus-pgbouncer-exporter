@@ -1,3 +1,13 @@
+prometheus-pgbouncer-exporter (1.5)
+
+  * Make the port and host configurable
+  * Remove default config file path
+  * Remove debian/
+  * Separate changelog
+  * Use add --pgbouncer to port and user options
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 27 Feb 2016 13:37:52 +0000
+
 prometheus-pgbouncer-exporter (1.4)
 
   * New release
