@@ -1,5 +1,5 @@
-prometheus-pgbouncer-exporter (1.6-1) unstable; urgency=medium
+prometheus-pgbouncer-exporter (1.7-1) unstable; urgency=medium
 
-  * Package version 1.4 (Closes: #814823).
+  * Package version 1.7 (Closes: #814823).
 
  -- Christopher Baines <mail@cbaines.net>  Wed, 17 Feb 2016 11:51:22 +0000
