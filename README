@@ -23,3 +23,17 @@ repository. Alternatively, you can download a binary package from here:
 I would recommend installing using setuptools, then running the
 promtheus-pgbouncer-exporter script. A systemd service file is provided which
 can be used if you have systemd.
+
+## Authentication
+
+The service connects to the pgbouncer admin console to gather metrics. The
+service file runs the service as the postgres user (which is assumed to be the
+user which pgbouncer is running as), such that it can access the admin console
+(for which access is allowed if the login comes from via a Unix socket and the
+client has the same user id as the pgbouncer service).
+
+This setup does mean that the exporter service (when running as the postgres
+user) has far more capabilities than it requires. A more secure approach is to
+run the service as a unprivileged user, which is listed in the stats_users
+configuration parameter, as this means the process does not have to run as the
+postgres user, and will be restricted to using the SHOW command.
