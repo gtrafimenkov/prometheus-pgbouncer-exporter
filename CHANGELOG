@@ -1,3 +1,9 @@
+prometheus-pgbouncer-exporter (1.7.1)
+
+  * Make the pgbouncer user password configurable
+
+ -- Gennady Trafimenkov <gennady.trafimenkov@gmail.com>  Fri, 20 Jan 2017 10:27:02 +0000
+
 prometheus-pgbouncer-exporter (1.7)
 
   * Include the port setting in the example configuration file

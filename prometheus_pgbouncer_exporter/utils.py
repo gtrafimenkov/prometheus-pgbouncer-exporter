@@ -14,10 +14,11 @@
 import psycopg2
 
 
-def get_connection(user, port, host):
+def get_connection(user, password, port, host):
     connection = psycopg2.connect(
         database='pgbouncer',
         user=user,
+        password=password,
         port=port,
         host=host,
     )

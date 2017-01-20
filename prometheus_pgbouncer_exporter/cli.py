@@ -75,6 +75,12 @@ def main():
         env_var='PGBOUNCER_USER',
     )
     p.add(
+        '--pgbouncer-password',
+        default=None,
+        help="Password to connect to pgbouncer with",
+        env_var='PGBOUNCER_PASSWORD',
+    )
+    p.add(
         '--pgbouncer-host',
         default=None,
         help="Host on which to connect to pgbouncer",
@@ -107,6 +113,7 @@ def main():
 
     connection = get_connection(
         options.pgbouncer_user,
+        options.pgbouncer_password,
         options.pgbouncer_port,
         options.pgbouncer_host,
     )
