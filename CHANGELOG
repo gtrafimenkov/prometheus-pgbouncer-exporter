@@ -1,3 +1,9 @@
+prometheus-pgbouncer-exporter (1.7.2)
+
+  * Add active_servers, sv_idle metrics
+
+ -- Gennady Trafimenkov <gennady.trafimenkov@gmail.com>  Fri, 26 Jan 2017 10:57:00 +0000
+
 prometheus-pgbouncer-exporter (1.7.1)
 
   * Make the pgbouncer user password configurable

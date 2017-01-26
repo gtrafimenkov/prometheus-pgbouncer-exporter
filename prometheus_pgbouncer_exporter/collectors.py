@@ -172,6 +172,14 @@ class PoolsCollector(NamedColumnCollector):
             'waiting_clients',
             "Client connections have sent queries but have not yet got a server connection",
         ),
+        'sv_active': (
+            'active_servers',
+            "Server connections that linked to client",
+        ),
+        'sv_idle': (
+            'idle_servers',
+            "Server connections that unused and immediately usable for client queries",
+        ),
     }
 
     def __init__(self, databases, *args, **kwargs):
